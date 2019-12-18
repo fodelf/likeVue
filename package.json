@@ -1,5 +1,5 @@
 {
-  "name": "likeVue",
+  "name": "likevue",
   "version": "1.0.0",
   "description": "use vue api in ts",
   "main": "index.ts",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fodelf/generate-ui.git"
+    "url": "git+https://github.com/fodelf/likeVue.git"
   },
   "dependencies": {
   },
