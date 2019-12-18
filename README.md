@@ -1,17 +1,11 @@
 <h2 align="center">
-能重复的工作以后必然会自动化，也终将自动化
+策略模式的应用,在ts 里使用vue的api，现应用于ng 中实现watch
 </h2>
-<h3 align="center">
-根据接口自动生成代码模板的小工具
-</h3>
 <p>
-   PS:此项目本人娱乐为主，通过可视化的方式选择文件目录，上传模板，选择接口数据，根据模板生成代码，当前已经实现swagger生成TS的内置需求
+   PS:此项目初级阶段也是使用了vue2的核心代码，没有使用vue3的原因是没有必要监听当前设想如此
 </p>
 <p>
-基于Vue开发
-</p>
-<p>
-Can automate repetitive tasks in the future will inevitably, these will be automated
+Use vue api in ts, now used to implement watch in ng
 </p>
 <p>
 全部开源
@@ -19,64 +13,37 @@ Can automate repetitive tasks in the future will inevitably, these will be autom
 
 ### Links/相关链接
 
-掘金 https://juejin.im/post/5dca0449f265da4d114013b1
-
-
-### 前端代码地址
-
-web https://github.com/fodelf/generateTemplate
+掘金 
 
 ### Features
 
 1. 支持场景
 
-   - [x] swagger ts
-   - [ ] mysql
-   - [ ] restful
-
-2. 支持功能
-
-   - [x] 生成代码
-   - [ ] 生成项目结构
+   - [x] ng ts
+   - [ ] react
+   - [ ] other
 
 #### 技术栈（当前）
 
-1. 前端：[Vue.js]
-2. 后端：[nodejs]
+1. 前端：[ts]
 
 ## Project setup
 
 ```
-npm install  generate-ui --save-dev
+npm install  likeVue 
 ```
 
-## Add generate JS 
+##  Example
 
 ```
-var liveServer = require("generate-ui");
+import {LikeVue} from 'likeVue'; 
 
-var params = {
-  port: 8181, // Set the server port. Defaults to 8080.
-  middleware: {}, // 尚未开发
-  proxy: {       // 配置swagger 查询接口代理转发
-    "/api": {
-      target: 'http://xx/'
-    }
-  }
-};
-liveServer.start(params);
-```
-## Start
-
-```
-node generate.js
-
-or npm  run  generate
-
+export class TestComponent implements OnInit {
+ @LikeVue()
+}
 ```
 ## Thanks
 ```
-https://github.com/vuejs/vue-cli
+https://github.com/vuejs
 
-https://github.com/tapio/live-server
 ```
