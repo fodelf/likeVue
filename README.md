@@ -31,13 +31,13 @@ Use vue api in ts, now used to implement watch in ng
 ## Project setup
 
 ```
-npm install  likevue 
+npm install  like-vue 
 ```
 
 ##  Example
 
 ```
-import {LikeVue} from 'likevue'; 
+import {LikeVue} from 'like-vue'; 
 
 export class TestComponent implements OnInit {
  @LikeVue()

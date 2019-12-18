@@ -1,5 +1,5 @@
 {
-  "name": "likevue",
+  "name": "like-vue",
   "version": "1.0.0",
   "description": "use vue api in ts",
   "main": "index.ts",
