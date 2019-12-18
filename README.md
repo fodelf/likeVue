@@ -1,7 +1,8 @@
 <h2 align="center">
-策略模式的应用,在ts 里使用vue的api，现应用于ng 中实现watch
+ LikeVue
 </h2>
 <p>
+   原因：策略模式的应用, 场景在ts 里使用vue的api，现应用于ng 中实现watch
    PS:此项目初级阶段也是使用了vue2的核心代码，没有使用vue3的原因是没有必要监听当前设想如此
 </p>
 <p>
