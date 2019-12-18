@@ -14,7 +14,7 @@ Use vue api in ts, now used to implement watch in ng
 
 ### Links/相关链接
 
-掘金 
+掘金 https://juejin.im/post/5df9fdec6fb9a0163d1a6748
 
 ### Features
 
@@ -46,5 +46,4 @@ export class TestComponent implements OnInit {
 ## Thanks
 ```
 https://github.com/vuejs
-
 ```
