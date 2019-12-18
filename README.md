@@ -41,6 +41,14 @@ import {LikeVue} from 'like-vue';
 
 export class TestComponent implements OnInit {
  @LikeVue()
+ $watch() {
+      return {
+        // 监听的属性
+        "prop":(value)=>{
+          // do something
+        }
+      };
+    }
 }
 ```
 ## Thanks
