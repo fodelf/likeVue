@@ -1,0 +1,21 @@
+{
+  "name": "likeVue",
+  "version": "1.0.0",
+  "description": "use vue api in ts",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "generate"
+  ],
+  "author": "wuwenzhou",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fodelf/generate-ui.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {}
+}
