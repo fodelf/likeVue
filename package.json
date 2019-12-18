@@ -1,8 +1,8 @@
 {
   "name": "like-vue",
-  "version": "1.0.0",
-  "description": "use vue api in ts",
-  "main": "index.ts",
+  "version": "1.0.2",
+  "description": "use vue api in ng or ts?",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -26,7 +26,7 @@ Use vue api in ts, now used to implement watch in ng
 
 #### 技术栈（当前）
 
-1. 前端：[ts]
+1. 前端：[ts,js]
 
 ## Project setup
 

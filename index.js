@@ -6,8 +6,8 @@
  * @LastEditors  : 吴文周
  * @LastEditTime : 2019-12-18 17:58:34
  */
-export function LikeVue(params?: any) {
-  return function (target: any, propertyName: string) {
+export function LikeVue(params) {
+  return function (target, propertyName) {
     target['$watchCache'] = {};  // 监听数据缓存
     target['$watchObj'] = {}; // 监听对象
     /**
