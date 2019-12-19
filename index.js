@@ -6,6 +6,15 @@
  * @LastEditors  : 吴文周
  * @LastEditTime : 2019-12-18 17:58:34
  */
+
+/**
+ * @author: 吴文周
+ * @name: LikeVue
+ * @description: 装饰器
+ * @param {type}: 默认参数
+ * @return {type}: 默认类型
+ * @example:  @LikeVue() $watch() { return { // 监听的属性 "prop":(value)=>{// do something} };}
+ */
 export function LikeVue(params) {
   return function (target, propertyName) {
     target['$watchCache'] = {};  // 监听数据缓存
@@ -27,11 +36,12 @@ export function LikeVue(params) {
           return value;
         },
         set: function (newValue) {
-          target.$watchCache[key] = newValue;
           let fun = target.$watchObj[key];
           if (typeof fun === 'function') {
             setTimeout(() => {
-              fun.call(target, newValue);
+              let oldValue = target.$watchCache[key];
+              fun.call(target, newValue,oldValue);
+              target.$watchCache[key] = newValue;
             }, 0)
           } else {
             console.log('this prop' + key + 'callback is not a function');
@@ -51,13 +61,90 @@ export function LikeVue(params) {
       if (typeof target.$watch === 'function') {
         target.$watchObj = target.$watch();
         Object.keys(target.$watchObj).forEach((key) => {
+          // this.$watchCache[key] = this[key];
           target.$watchObserver(key);
         });
       } else {
-        console.log('target $watch is not a function');
+        console.log('this $watch is not a function');
       }
     };
     // 自执行初始化
     target['$watchInit']();
+  }
+}
+
+/**
+ * @author: 吴文周
+ * @name: NgVue
+ * @description: 继承类
+ * @param {type}: 默认参数
+ * @return {type}: 默认类型
+ * @example: $watch() { return { // 监听的属性 "prop":(value)=>{// do something} };}
+ */
+export class NgVue {
+  constructor() {
+    this.$watchInit();
+  }
+  $watchCache = {};  // 监听数据缓存
+  $watchObj = {}; // 监听对象
+   /**
+   * @author: 吴文周
+   * @name:  $watchObserver
+   * @description: 添加观察者
+   * @param {type}: 默认参数
+   * @return {type}: 默认类型
+   * @example: 示例
+   */
+  $watchObserver(key) {
+    Object.defineProperty(this, key, {
+    	enumerable: true,
+    	configurable: true,
+      get: function () {
+        let value =  this.$watchCache[key] || '';
+        return value;
+      },
+      set: function (newValue) {
+        let fun = this.$watchObj[key];
+        if (typeof fun === 'function') {
+          setTimeout(() => {
+            let oldValue = target.$watchCache[key];
+            fun.call(this, newValue,oldValue);
+            target.$watchCache[key] = newValue;
+          },0)
+        } else {
+          console.log('this' + key + 'callback is not a function');
+        }
+      }
+    });
+  }
+   /**
+   * @author: 吴文周
+   * @name: $watch
+   * @description: 监听行为
+   * @param {type}: 默认参数
+   * @return {type}: 默认类型
+   * @example: 示例
+   */
+  $watch() {
+    return {};
+  }
+  /**
+   * @author: 吴文周
+   * @name: $watchInit
+   * @description: 监听初始化
+   * @param {type}: 默认参数
+   * @return {type}: 默认类型
+   * @example: 示例
+   */
+  $watchInit() {
+    if (typeof this.$watch === 'function') {
+      this.$watchObj = this.$watch();
+      Object.keys(this.$watchObj).forEach((key) => {
+        // this.$watchCache[key] = this[key];
+        this.$watchObserver(key);
+      });
+    } else {
+      console.log('this $watch is not a function');
+    }
   }
 }
