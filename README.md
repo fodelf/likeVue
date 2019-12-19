@@ -44,7 +44,7 @@ export class TestComponent implements OnInit {
  $watch() {
       return {
         // 监听的属性
-        "prop":(value)=>{
+        "prop":(newValue,oldValue)=>{
           // do something
         }
       };
