@@ -15,7 +15,7 @@
  * @return {type}: 默认类型
  * @example:  @LikeVue() $watch() { return { // 监听的属性 "prop":(value)=>{// do something} };}
  */
-export function LikeVue(params) {
+export function LikeVue(params?:string) {
   return function (target, propertyName) {
     target['$watchCache'] = {};  // 监听数据缓存
     target['$watchObj'] = {}; // 监听对象
@@ -39,9 +39,14 @@ export function LikeVue(params) {
           let fun = target.$watchObj[key];
           if (typeof fun === 'function') {
             setTimeout(() => {
-              let oldValue = target.$watchCache[key];
-              fun.call(target, newValue,oldValue);
-              target.$watchCache[key] = newValue;
+              // 是否是第一次设值,初始化设值不监听
+              if(target.$watchCache.hasOwnProperty(key)){
+                let oldValue = target.$watchCache[key];
+                target.$watchCache[key] = newValue;
+                fun.call(target, newValue,oldValue);
+              }else{
+                target.$watchCache[key] = newValue;
+              }
             }, 0)
           } else {
             console.log('this prop' + key + 'callback is not a function');
@@ -84,7 +89,7 @@ export function LikeVue(params) {
 export class NgVue {
   constructor() {
     this.$watchInit();
-  }
+  };
   $watchCache = {};  // 监听数据缓存
   $watchObj = {}; // 监听对象
    /**
@@ -107,9 +112,14 @@ export class NgVue {
         let fun = this.$watchObj[key];
         if (typeof fun === 'function') {
           setTimeout(() => {
-            let oldValue = target.$watchCache[key];
-            fun.call(this, newValue,oldValue);
-            target.$watchCache[key] = newValue;
+            // 是否是第一次设值,初始化设值不监听
+            if(this.$watchCache.hasOwnProperty(key)){
+              let oldValue = this.$watchCache[key];
+              this.$watchCache[key] = newValue;
+              fun.call(this, newValue,oldValue);
+            }else{
+              this.$watchCache[key] = newValue;
+            }
           },0)
         } else {
           console.log('this' + key + 'callback is not a function');

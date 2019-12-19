@@ -1,13 +1,16 @@
 {
   "name": "like-vue",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "use vue api in ng or ts?",
-  "main": "index.js",
+  "main": "./dist/like-vue.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [
-    "vue","ng","ts"
+    "vue",
+    "ng",
+    "ts"
   ],
   "author": "wuwenzhou",
   "license": "MIT",
@@ -15,7 +18,13 @@
     "type": "git",
     "url": "git+https://github.com/fodelf/likeVue.git"
   },
-  "dependencies": {
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
 }
